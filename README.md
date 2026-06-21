@@ -75,8 +75,11 @@ $env:PYTHONIOENCODING='utf-8'; python batch_generate.py --input sample_prompts.t
 
 ## 📁 File Structure
 
-*   [`batch_generate.py`](batch_generate.py): The main automation script.
+*   [`batch_generate.py`](batch_generate.py): The main automation script to batch images.
+*   [`generate_stixx_script_skill.md`](generate_stixx_script_skill.md): The AI assistant run-book skill documentation.
 *   [`system_prompt.txt`](system_prompt.txt): The external template file containing the default explainer style.
+*   [`dynamic_ink_explainer.txt`](dynamic_ink_explainer.txt): Dynamic style prompt template for Ink Explainer look.
 *   [`sample_prompts.txt`](sample_prompts.txt): A short sample input file demonstrating timestamp script format.
 *   [`image_z_image_turbo.json`](image_z_image_turbo.json): Base ComfyUI workflow (API node format) loaded by the script.
 *   [`project_resume_guide.md`](project_resume_guide.md): Comprehensive handover and resume guide documenting the visual history and development guidelines.
+

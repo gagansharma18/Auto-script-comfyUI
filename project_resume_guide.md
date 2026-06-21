@@ -22,10 +22,12 @@ The project consists of the following key files:
 | File | Purpose | Description |
 | :--- | :--- | :--- |
 | [`batch_generate.py`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/batch_generate.py) | **Python Automation Script** | Automatically reads text scripts line-by-line, parses timestamps, builds prompts using the style template, calls the ComfyUI API, polls for completion, and saves images using a dynamic filename format (`stixx_stories_[sequence_number]_[timestamp]_*.png`). |
+| [`generate_stixx_script_skill.md`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/generate_stixx_script_skill.md) | **AI Agent Skill Runbook** | Instructs AI coding assistants how to execute the script generation and prompt extraction flow. |
 | [`image_z_image_turbo.json`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/image_z_image_turbo.json) | **Base ComfyUI Workflow** | Single-image API node configuration for the **Z-Image-Turbo** pipeline. |
 | [`image_z_image_turbo_batch.json`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/image_z_image_turbo_batch.json) | **Batch ComfyUI Workflow** | An in-UI workflow using `LoadText|pysssss` and `StringFunction|pysssss` custom nodes to generate images sequentially inside the ComfyUI interface. |
 | [`sample_prompts.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/sample_prompts.txt) | **Sample Input File** | Demonstrates the script format (supporting both `00:00 - Description` and plain text descriptions). |
 | [`system_prompt.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/system_prompt.txt) | **Default Prompt Template** | External text file containing the style instructions structure, passed using `--template`. |
+| [`dynamic_ink_explainer.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/dynamic_ink_explainer.txt) | **Dynamic Ink Explainer Template** | Style prompt template optimized for dynamic character count, text overlays, and situational backgrounds. |
 
 ---
 

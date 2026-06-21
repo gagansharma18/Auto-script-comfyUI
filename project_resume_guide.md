@@ -26,6 +26,7 @@ The project consists of the following key files:
 | [`image_z_image_turbo_batch.json`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/image_z_image_turbo_batch.json) | **Batch ComfyUI Workflow** | An in-UI workflow using `LoadText|pysssss` and `StringFunction|pysssss` custom nodes to generate images sequentially inside the ComfyUI interface. |
 | [`sample_prompts.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/sample_prompts.txt) | **Sample Input File** | Demonstrates the script format (supporting both `00:00 - Description` and plain text descriptions). |
 | [`system_prompt.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/system_prompt.txt) | **Default Prompt Template** | External text file containing the style instructions structure, passed using `--template`. |
+| [`dynamic_ink_explainer.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/dynamic_ink_explainer.txt) | **Dynamic Ink Explainer Template** | Style prompt template optimized for dynamic character count, text overlays, and situational backgrounds. |
 
 ---
 
@@ -40,12 +41,18 @@ The visual style for **Stixx Stories** has evolved through three distinct phases
 ### Phase 2: Ink Explainer Inspired
 *   **Aesthetic:** Character style retained (simple white circle heads, stick limbs) but rebranded to use the `stixx_stories` filename prefix.
 
-### Phase 3: History Alive Animated + Ink Explainer Blend (Current)
-*   **Aesthetic:** Characters are stick figures with large round white circular heads (no skin tone), small dot eyes, thin curved black eyebrows to show emotion, and simple line/oval mouths. They have simplified flat-colored hair blocks with messy spikes, and wear basic flat-colored clothes (such as animal skins, robes, t-shirts, or lab coats).
-*   **Backgrounds:** Instead of white space, they are now minimalist, clean settings using a soft, warm color palette (light beige, soft blue, pale green, terracotta). The environment uses simple shapes and soft gradients, sometimes with a subtle depth-of-field blur.
-*   **Outlines & Fills:** Thick, slightly irregular wobbly outlines with flat color fills (polished digital webcomic aesthetic with hand-drawn line imperfections).
+### Phase 3: History Alive Animated + Ink Explainer Blend (Current Default)
+*   **Aesthetic:** Stick figures with large round white circular heads (no skin tone), small dot eyes, thin curved black eyebrows to show emotion, and simple line or oval mouths. Bodies are thin black stick lines with simple line arms and legs. Characters have simplified messy spikes of flat-colored hair (e.g., brown, black, grey) and wear basic flat-colored clothing (such as primitive animal skins, t-shirts, or simple tunics).
+*   **Backgrounds:** Minimalist settings using soft, warm color palettes (light beige, soft blue, pale green, terracotta) with clean vector shapes, flat coloring, and gentle gradients.
+*   **Outlines & Fills:** Thick, slightly irregular wobbly black outlines with flat color fills.
 
-### The Current Active Prompt Template
+### Phase 4: Dynamic Ink Explainer Style (Custom Template)
+*   **File**: [`dynamic_ink_explainer.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/dynamic_ink_explainer.txt)
+*   **Aesthetic:** Stylized stick figures with large bald heads (flat skin-tone or white), simple dot eyes, thin eyebrows, and thin black lines for bodies/limbs. Characters wear flat-colored clothes with bold black outlines, or have simple black hair/beards (e.g. for prehistoric/caveman scenes) where appropriate.
+*   **Dynamic Composition & Context**: The prompt template is engineered conditionally to only draw characters or detailed settings if they are actually specified in the scene. Diagrams, text cards, microscopic views, or character-less close-ups are rendered as clean minimalist vector graphics, preventing repetitive character/setting counts.
+*   **Outlines & Fills**: Hand-drawn digital vector look with clean, solid outlines (black for characters, colored outlines for objects/backgrounds) and flat color fills. Warm pastel color scheme.
+
+### The Default Hardcoded Prompt Template
 The following prompt template is hardcoded as `STYLE_PROMPT_TEMPLATE` in `batch_generate.py`:
 
 ```python
@@ -91,6 +98,11 @@ Scene: {scene_description}"""
 *   **With Custom Style Prompt Template:**
     ```bash
     $env:PYTHONIOENCODING='utf-8'; python batch_generate.py --input sample_prompts.txt --template system_prompt.txt
+    ```
+
+*   **With Dynamic Ink Explainer Style Template:**
+    ```bash
+    $env:PYTHONIOENCODING='utf-8'; python batch_generate.py --input Episode1.txt --template dynamic_ink_explainer.txt
     ```
 
 ---

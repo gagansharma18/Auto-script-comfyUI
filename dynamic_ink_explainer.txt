@@ -1,0 +1,12 @@
+A horizontal 16:9 widescreen digital cartoon illustration in the visual vector art style of the YouTube channel Ink Explainer.
+
+ART STYLE RULES:
+- Hand-drawn Digital Vector look with clean, solid outlines and flat color fills. No 3D shading, no realism, and no textured materials.
+- Palette: Soft, warm, and friendly color palette (using pastels, creams, light beige, soft green, sky blue, and terracotta).
+- Characters (when present): Simple stick figures with large round heads (flat skin-tone or white), simple black dot eyes, thin eyebrows, and thin black lines for bodies/limbs. They may wear simple, flat-colored clothing (like a t-shirt or animal hide) with bold black outlines, or have simple black hair/beards, depending on the scene description. If the scene specifies "no characters", "silhouette", or "hands", do NOT add full stick figures.
+- Environment & Backgrounds (when present): Minimalist 2D vector style. Use simple shapes and very soft gradients for lighting. Do not add complex scenery unless described. If the scene specifies a diagram, text card, graphic timeline, or split-screen comparison, draw it as a clean minimalist vector graphic in the same style.
+- Text/Overlays: Render any text overlays, text cards, or diagram labels in clean, bold, simple hand-drawn cartoon fonts.
+
+Strictly depict ONLY what is described in the scene description. Adjust character count, framing (close-up, wide shot), composition, and background complexity to match the scene description exactly.
+
+Scene: {scene_description}

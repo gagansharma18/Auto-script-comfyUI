@@ -127,7 +127,7 @@ WORKFLOW_API = {
     "9": {
         "class_type": "SaveImage",
         "inputs": {
-            "filename_prefix": "inkexplainer",
+            "filename_prefix": "stixx_stories",
             "images": ["8", 0]
         }
     }
@@ -229,8 +229,8 @@ def main():
     )
     parser.add_argument(
         "--prefix", "-p",
-        default="inkexplainer",
-        help="Filename prefix for saved images (default: mspaint)"
+        default="stixx_stories",
+        help="Filename prefix for saved images (default: stixx_stories)"
     )
     parser.add_argument(
         "--timeout", "-t",

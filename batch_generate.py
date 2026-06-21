@@ -39,11 +39,11 @@ import sys
 # ─────────────────────────────────────────────────────────────
 # STYLE PROFILE PROMPT TEMPLATE
 # ─────────────────────────────────────────────────────────────
-STYLE_PROMPT_TEMPLATE = """A horizontal 16:9 widescreen illustration in the style of an animated educational YouTube explainer video. The characters are simple stick figures with large round white circular heads, small dot eyes, simple line mouths showing expression, thin black stick bodies with thin line arms and legs. Characters may wear simple solid-color clothing like a blue t-shirt. The characters have clean, bold black ink outlines.
+STYLE_PROMPT_TEMPLATE = """A horizontal 16:9 widescreen illustration in the style of an animated educational webcomic or YouTube explainer video. The characters are simple stick figures with large round white circular heads, small black dot eyes, thin curved black eyebrows to show emotion, and simple line or oval mouths. Bodies are thin black stick lines with simple line arms and legs. Characters have simplified messy spikes of flat-colored hair (e.g., brown, black, grey) and wear basic, simple flat-colored clothing (such as primitive animal skins, t-shirts, or simple tunics).
 
-The background is a fully painted, richly detailed scenic illustration with depth and atmosphere — such as landscapes, caves, forests, snowy mountains, savannas, or ancient environments. The background uses warm earth tones, soft gradients, and painterly brushwork with environmental details like trees, rocks, clouds, and weather effects. The contrast between the simple stick-figure characters and the detailed painted background is the signature style.
+The characters and foreground objects have thick, slightly irregular hand-drawn wobbly black outlines. The background is a clean, minimalist illustrated setting with a soft, warm color palette (such as light beige, soft blue, pale green, or terracotta). The background environment is drawn with simple clean shapes, flat coloring, and gentle gradients, occasionally with a very subtle depth-of-field blur.
 
-The composition is cinematic and wide, filling the entire 16:9 frame. The scene tells a story through character poses and environmental context. No text overlays, no UI elements, no watermarks.
+The overall look is a polished, flat-color digital vector webcomic style with hand-drawn imperfections. There is no complex 3D shading, no realism, and no photo-realistic lighting. Zero written text, zero labels, zero speech bubbles, and zero watermarks.
 
 Scene: {scene_description}"""
 

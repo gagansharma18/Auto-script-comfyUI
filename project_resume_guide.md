@@ -25,6 +25,7 @@ The project consists of the following key files:
 | [`image_z_image_turbo.json`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/image_z_image_turbo.json) | **Base ComfyUI Workflow** | Single-image API node configuration for the **Z-Image-Turbo** pipeline. |
 | [`image_z_image_turbo_batch.json`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/image_z_image_turbo_batch.json) | **Batch ComfyUI Workflow** | An in-UI workflow using `LoadText|pysssss` and `StringFunction|pysssss` custom nodes to generate images sequentially inside the ComfyUI interface. |
 | [`sample_prompts.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/sample_prompts.txt) | **Sample Input File** | Demonstrates the script format (supporting both `00:00 - Description` and plain text descriptions). |
+| [`system_prompt.txt`](file:///C:/Users/gagan/Documents/YOUTUBE/Auto%20script%20comfyUI/system_prompt.txt) | **Default Prompt Template** | External text file containing the style instructions structure, passed using `--template`. |
 
 ---
 
@@ -85,6 +86,11 @@ Scene: {scene_description}"""
 *   **Custom Server & Settings:**
     ```bash
     $env:PYTHONIOENCODING='utf-8'; python batch_generate.py --input sample_prompts.txt --server http://127.0.0.1:8188 --steps 8 --width 1280 --height 720
+    ```
+
+*   **With Custom Style Prompt Template:**
+    ```bash
+    $env:PYTHONIOENCODING='utf-8'; python batch_generate.py --input sample_prompts.txt --template system_prompt.txt
     ```
 
 ---

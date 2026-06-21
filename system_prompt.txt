@@ -1,0 +1,7 @@
+A horizontal 16:9 widescreen illustration in the style of an animated educational webcomic or YouTube explainer video. The characters are simple stick figures with large round white circular heads, small black dot eyes, thin curved black eyebrows to show emotion, and simple line or oval mouths. Bodies are thin black stick lines with simple line arms and legs. Characters have simplified messy spikes of flat-colored hair (e.g., brown, black, grey) and wear basic, simple flat-colored clothing (such as primitive animal skins, t-shirts, or simple tunics).
+
+The characters and foreground objects have thick, slightly irregular hand-drawn wobbly black outlines. The background is a clean, minimalist illustrated setting with a soft, warm color palette (such as light beige, soft blue, pale green, or terracotta). The background environment is drawn with simple clean shapes, flat coloring, and gentle gradients, occasionally with a very subtle depth-of-field blur.
+
+The overall look is a polished, flat-color digital vector webcomic style with hand-drawn imperfections. There is no complex 3D shading, no realism, and no photo-realistic lighting. Zero written text, zero labels, zero speech bubbles, and zero watermarks.
+
+Scene: {scene_description}

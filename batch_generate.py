@@ -163,9 +163,9 @@ def parse_line(line: str) -> tuple[str, str]:
     return None, line
 
 
-def build_prompt(scene_description: str) -> str:
+def build_prompt(scene_description: str, style_template: str = STYLE_PROMPT_TEMPLATE) -> str:
     """Build the full styled prompt from a scene description."""
-    return STYLE_PROMPT_TEMPLATE.format(scene_description=scene_description)
+    return style_template.format(scene_description=scene_description)
 
 
 def get_history(server: str, prompt_id: str) -> dict:
@@ -261,8 +261,21 @@ def main():
         action="store_true",
         help="Print prompts without sending to ComfyUI"
     )
+    parser.add_argument(
+        "--template", "-T",
+        help="Path to a text file containing the style prompt template (uses STYLE_PROMPT_TEMPLATE by default)"
+    )
 
     args = parser.parse_args()
+
+    # ── Read prompt template ─────────────────────────────────
+    style_template = STYLE_PROMPT_TEMPLATE
+    if args.template:
+        if not os.path.exists(args.template):
+            print(f"❌ Template file not found: {args.template}")
+            sys.exit(1)
+        with open(args.template, "r", encoding="utf-8") as f:
+            style_template = f.read()
 
     # ── Read input file ──────────────────────────────────────
     if not os.path.exists(args.input):
@@ -292,7 +305,7 @@ def main():
     client_id = str(uuid.uuid4())
 
     for i, (label, scene_desc) in enumerate(scenes, start=1):
-        full_prompt = build_prompt(scene_desc)
+        full_prompt = build_prompt(scene_desc, style_template)
 
         # Sanitize label for filename
         safe_label = re.sub(r'[^\w\-]', '_', label)

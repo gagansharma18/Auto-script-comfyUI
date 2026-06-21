@@ -39,7 +39,11 @@ import sys
 # ─────────────────────────────────────────────────────────────
 # STYLE PROFILE PROMPT TEMPLATE
 # ─────────────────────────────────────────────────────────────
-STYLE_PROMPT_TEMPLATE = """A horizontal 16:9 widescreen composition of an intentionally bad, amateur MS Paint drawing. Simple childish stick-man drawing style, wobbly hand-drawn thick uneven black outlines, flat colors only, completely white background, mostly empty space, centered composition. Extremely basic facial expressions, dot eyes, simple stick figure humans with round heads and line bodies. Drawn with basic shapes like squares and circles. Zero shading, zero 3D elements, zero cinematic lighting.
+STYLE_PROMPT_TEMPLATE = """A horizontal 16:9 widescreen illustration in the style of an animated educational YouTube explainer video. The characters are simple stick figures with large round white circular heads, small dot eyes, simple line mouths showing expression, thin black stick bodies with thin line arms and legs. Characters may wear simple solid-color clothing like a blue t-shirt. The characters have clean, bold black ink outlines.
+
+The background is a fully painted, richly detailed scenic illustration with depth and atmosphere — such as landscapes, caves, forests, snowy mountains, savannas, or ancient environments. The background uses warm earth tones, soft gradients, and painterly brushwork with environmental details like trees, rocks, clouds, and weather effects. The contrast between the simple stick-figure characters and the detailed painted background is the signature style.
+
+The composition is cinematic and wide, filling the entire 16:9 frame. The scene tells a story through character poses and environmental context. No text overlays, no UI elements, no watermarks.
 
 Scene: {scene_description}"""
 
@@ -123,7 +127,7 @@ WORKFLOW_API = {
     "9": {
         "class_type": "SaveImage",
         "inputs": {
-            "filename_prefix": "z-image-turbo",
+            "filename_prefix": "inkexplainer",
             "images": ["8", 0]
         }
     }
@@ -225,7 +229,7 @@ def main():
     )
     parser.add_argument(
         "--prefix", "-p",
-        default="mspaint",
+        default="inkexplainer",
         help="Filename prefix for saved images (default: mspaint)"
     )
     parser.add_argument(

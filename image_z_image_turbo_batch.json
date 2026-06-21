@@ -1,0 +1,484 @@
+{
+  "id": "9ae6082b-c7f4-433c-9971-7a8f65a3ea65-batch",
+  "revision": 0,
+  "last_node_id": 75,
+  "last_link_id": 90,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [1850, 300],
+      "size": [400, 400],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 62
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64"
+      },
+      "widgets_values": [
+        "mspaint"
+      ],
+      "title": "💾 Save Image"
+    },
+    {
+      "id": 28,
+      "type": "UNETLoader",
+      "pos": [50, 200],
+      "size": [270, 107],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [26]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.73",
+        "models": [
+          {
+            "name": "z_image_turbo_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "z_image_turbo_bf16.safetensors",
+        "default"
+      ],
+      "title": "🔧 Load UNET Model"
+    },
+    {
+      "id": 30,
+      "type": "CLIPLoader",
+      "pos": [50, 380],
+      "size": [270, 141],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [28]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.73",
+        "models": [
+          {
+            "name": "qwen_3_4b.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen_3_4b.safetensors",
+        "lumina2",
+        "default"
+      ],
+      "title": "🔧 Load CLIP"
+    },
+    {
+      "id": 29,
+      "type": "VAELoader",
+      "pos": [50, 600],
+      "size": [270, 107],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [27]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.73",
+        "models": [
+          {
+            "name": "ae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ],
+      "title": "🔧 Load VAE"
+    },
+    {
+      "id": 70,
+      "type": "LoadText|pysssss",
+      "pos": [50, 800],
+      "size": [400, 200],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [80]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadText|pysssss"
+      },
+      "widgets_values": [
+        "prompts.txt",
+        "file",
+        0,
+        true
+      ],
+      "title": "📄 Load Text File (Line by Line)"
+    },
+    {
+      "id": 71,
+      "type": "StringFunction|pysssss",
+      "pos": [520, 800],
+      "size": [500, 350],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [81]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "A horizontal 16:9 widescreen composition of an intentionally bad, amateur MS Paint drawing. Simple childish stick-man drawing style, wobbly hand-drawn thick uneven black outlines, flat colors only, completely white background, mostly empty space, centered composition. Extremely basic facial expressions, dot eyes, simple stick figure humans with round heads and line bodies. Drawn with basic shapes like squares and circles. Zero shading, zero 3D elements, zero cinematic lighting.\n\nScene: ",
+        "",
+        ""
+      ],
+      "title": "🎨 Prepend Style Prompt"
+    },
+    {
+      "id": 27,
+      "type": "CLIPTextEncode",
+      "pos": [1100, 300],
+      "size": [450, 250],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 28
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [30, 32]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.73"
+      },
+      "widgets_values": [
+        "style prompt will be injected here automatically"
+      ],
+      "title": "📝 CLIP Encode (Auto-Prompted)"
+    },
+    {
+      "id": 33,
+      "type": "ConditioningZeroOut",
+      "pos": [1100, 620],
+      "size": [225, 72],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [33]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.73"
+      },
+      "widgets_values": [],
+      "title": "Negative (Zero Out)"
+    },
+    {
+      "id": 13,
+      "type": "EmptySD3LatentImage",
+      "pos": [50, 1080],
+      "size": [260, 168],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [17]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64"
+      },
+      "widgets_values": [
+        1280,
+        720,
+        1
+      ],
+      "title": "📐 Image Size (16:9 Widescreen)"
+    },
+    {
+      "id": 11,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [400, 200],
+      "size": [310, 104],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [13]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64"
+      },
+      "widgets_values": [3],
+      "title": "Model Sampling (AuraFlow)"
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [1400, 750],
+      "size": [320, 341],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 13
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 30
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 33
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [14]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64"
+      },
+      "widgets_values": [
+        1034607977033578,
+        "randomize",
+        8,
+        1,
+        "res_multistep",
+        "simple",
+        1
+      ],
+      "title": "⚡ KSampler (8 steps Turbo)"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [1850, 750],
+      "size": [225, 96],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 14
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [62]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64"
+      },
+      "widgets_values": [],
+      "title": "VAE Decode"
+    },
+    {
+      "id": 35,
+      "type": "MarkdownNote",
+      "pos": [-550, 200],
+      "size": [510, 900],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "📋 Instructions",
+      "properties": {},
+      "widgets_values": [
+        "## 🎬 MS Paint Style Batch Image Generator\n\n### How to Use This Workflow\n\n**Step 1:** Place your text file in ComfyUI's `input` folder\n\n**Step 2:** In the **Load Text File** node, select your `.txt` file\n\n**Step 3:** Set the **Batch Count** in the queue to match the number of lines\n\n**Step 4:** Click **Queue Prompt** — each run reads the next line!\n\n---\n\n### Text File Format\n```\n00:00 - Early humans on the African savanna\n00:05 - A caveman discovering fire\n00:10 - Two stick figures trading goods\n```\n\nOR simply:\n```\nEarly humans on the African savanna\nA caveman discovering fire\nTwo stick figures trading goods\n```\n\n---\n\n### 🐍 Python Script (Recommended)\n\nFor fully automated batch processing, use:\n```\npython batch_generate.py -i prompts.txt\n```\n\nThe Python script:\n- Reads each line from your text file\n- Wraps it in the MS Paint style prompt\n- Sends to ComfyUI API automatically\n- Waits for each image before next\n- Names files with timestamps/line numbers\n\n---\n\n### Model Files Required\n- `z_image_turbo_bf16.safetensors` → diffusion_models/\n- `qwen_3_4b.safetensors` → text_encoders/\n- `ae.safetensors` → vae/\n\n### Custom Nodes Required\n- **pysssss/ComfyUI-Custom-Scripts** (for LoadText and StringFunction nodes)\n- Install via ComfyUI Manager\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [62, 8, 0, 9, 0, "IMAGE"],
+    [26, 28, 0, 11, 0, "MODEL"],
+    [28, 30, 0, 27, 0, "CLIP"],
+    [27, 29, 0, 8, 1, "VAE"],
+    [13, 11, 0, 3, 0, "MODEL"],
+    [30, 27, 0, 3, 1, "CONDITIONING"],
+    [33, 33, 0, 3, 2, "CONDITIONING"],
+    [17, 13, 0, 3, 3, "LATENT"],
+    [14, 3, 0, 8, 0, "LATENT"],
+    [32, 27, 0, 33, 0, "CONDITIONING"],
+    [80, 70, 0, 71, 0, "STRING"],
+    [81, 71, 0, 27, 1, "STRING"]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "📄 INPUT - Text File Reader",
+      "bounding": [30, 740, 1040, 280],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "🔧 Model Loaders",
+      "bounding": [30, 140, 700, 560],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "⚡ Generation Pipeline",
+      "bounding": [1080, 240, 500, 500],
+      "color": "#8b4513",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "💾 Output",
+      "bounding": [1830, 240, 420, 520],
+      "color": "#2e8b57",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.45.15",
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.5,
+      "offset": [600, 300]
+    }
+  },
+  "version": 0.4
+}
